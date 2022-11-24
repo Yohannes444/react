@@ -1,7 +1,7 @@
 import { Navbar,NavbarBrand } from 'reactstrap'
 import Menu from "./MenuComponent"
 import { DISHES } from "../shared/dishes"
-import { Component } from 'react';
+import React,{ Component } from 'react';
 import  DishdetailComponent  from "./DishdetailComponent"
 
 
@@ -20,6 +20,9 @@ class  Main extends Component {
     this.setState({selectedDish: dishId ,  selectOne: true ,   comment:dishId.comments })
   
 }
+onSetAfter(empty){
+  this.setState({selectedDish: empty.selectedDish, selectOne:empty.seletedOne, comment:empty.comment})
+}
   render(){
     return (
 
@@ -31,15 +34,12 @@ class  Main extends Component {
           </div>
         </Navbar>
         
-        <Menu dishes={this.state.dishes} onClick={(dishId)=>this.onDishSelecte(dishId)}/>
-        {this.state.selectOne &&(
-            <div>
-               
-                <DishdetailComponent state={this.state} comments={this.state.comment} dish={this.state.dishes.filter((dish)=>dish.id === this.state.selectedDish)[0]}/>
-                
+        <Menu dishes={this.state.dishes} onClick={(dishId)=>this.onDishSelecte(dishId)} setAfter={(empty)=>this.onSetAfter(empty)}/>
 
-            </div>
-        )}
+          
+        {this.state.selectOne &&(<DishdetailComponent   comments={this.state.comment} dish={this.state.dishes.filter((dish)=>dish.id === this.state.selectedDish)[0]}/>)}
+        
+        
         
         
       </div>

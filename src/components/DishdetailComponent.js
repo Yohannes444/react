@@ -29,19 +29,18 @@ class DishDetail extends Component {
     
     render() {
         
-         const renderComments=this.state.dish.comments.map((comment)=>{
+        
+            var renderComments= this.state.dish.comments.map((comment)=>{
             
-            if(comment != null){
             return(
             <div key={comment.id} className="container">
                 
                 <p>{comment.comment}</p>
                 <p>{comment.author}  {new Intl.DateTimeFormat('en-US',{year:'numeric',month:'short', day:'2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                 
-            </div>    )}else{
-                return(<div></div>)
-            }
+            </div>    )
         }) 
+        
         return(
             <div className="row">
                 {this.renderDish(this.state.dish)}
