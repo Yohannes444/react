@@ -3,8 +3,6 @@ import Menu from "./MenuComponent"
 import { DISHES } from "../shared/dishes"
 import React,{ Component } from 'react';
 import  DishdetailComponent  from "./DishdetailComponent"
-import Header from './headerComponent';
-import Footer from './footerComponent';
 
 
 class  Main extends Component {
@@ -29,14 +27,19 @@ onSetAfter(empty){
     return (
 
       <div className="App">
-        <Header/>
+        <Navbar dark color="primary">
+          <div className="container ">
+            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+  
+          </div>
+        </Navbar>
         
         <Menu dishes={this.state.dishes} onClick={(dishId)=>this.onDishSelecte(dishId)} setAfter={(empty)=>this.onSetAfter(empty)}/>
 
           
         {this.state.selectOne &&(<DishdetailComponent   comments={this.state.comment} dish={this.state.dishes.filter((dish)=>dish.id === this.state.selectedDish)[0]}/>)}
         
-        <Footer/>
+        
         
         
       </div>
