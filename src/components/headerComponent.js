@@ -22,7 +22,7 @@ class Header extends Component {
     <div>
       <Navbar dark expand="md">
         <div className="container">
-        <NavbarToggler onClick={this.toggleNav} />
+        <NavbarToggler onClick={this.toggleNav()} />
             <NavbarBrand className="mr-auto" href="/">
             <img src='assets/images/logo.png' height="30" width="41" alt='Ristorante Con Fusion' />
             </NavbarBrand>
@@ -30,16 +30,16 @@ class Header extends Component {
             <BrowserRouter>
                             <Nav navbar>
                             <NavItem>
-                                <Link className="nav-link"  to='/home'><span className="fa fa-home fa-lg"></span> Home</Link>
+                                <Link className="nav-link"  to='/home'><span className="fa fa-home fa-lg">Home</span> </Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg"></span> About Us</Link>
+                                <Link className="nav-link" to='/aboutus'><span className="fa fa-info fa-lg">About Us</span> </Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link"  to='/menu'><span className="fa fa-list fa-lg"></span> Menu</Link>
+                                <Link className="nav-link"  to='/menu'><span className="fa fa-list fa-lg">Menu</span> </Link>
                             </NavItem>
                             <NavItem>
-                                <Link className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"></span> Contact Us</Link>
+                                <Link className="nav-link" to='/contactus'><span className="fa fa-address-card fa-lg"> Contact Us</span></Link>
                             </NavItem>
                             </Nav></BrowserRouter>
                         </Collapse>

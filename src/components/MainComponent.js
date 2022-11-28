@@ -8,6 +8,10 @@ import Home from './HomeComponent'
 //import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 //import { Navbar, NavbarBrand } from 'reactstrap';
+import Contact from "./contactComponent";
+import {Comment } from "../shared/comment"
+import {Promition} from "../shared/promotiones"
+import {LEADERS} from "../shared/leaders"
 
 
 
@@ -16,9 +20,9 @@ class  Main extends Component {
     super(props)
     this.state={
       dishes:DISHES,
-      selectedDish:null,
-      selectOne:false,
-      comment:null
+      leaders:LEADERS,
+      promition:Promition,
+      comments:Comment
     }
   };
   onDishSelecte(dishId){
@@ -49,9 +53,9 @@ onSetAfter(empty){
          <BrowserRouter>
          <Routes>
           
-          <Route path='home'  element={<HomePage/>} />
-          <Route exact path='menu' element={ <Menu dishes={this.state.dishes} />} />
-             
+          <Route path='/home'  element={<HomePage/>} />
+          <Route exact path='/menu' element={ <Menu dishes={this.state.dishes} />} />
+          <Route exact path="/contactus" element={<Contact/>}/>
         </Routes> 
         </BrowserRouter>
         <Footer/>
