@@ -5,13 +5,8 @@ import React,{ Component } from 'react';
 import Header from './headerComponent';
 import Footer from './footerComponent';
 import Home from './HomeComponent'
-//import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-//import { Navbar, NavbarBrand } from 'reactstrap';
-import Contact from "./contactComponent";
-import {Comment } from "../shared/comment"
-import {Promition} from "../shared/promotiones"
-import {LEADERS} from "../shared/leaders"
+import { Routes, Route } from "react-router-dom";
+import Contactus from './contactComponent'
 
 
 
@@ -20,9 +15,9 @@ class  Main extends Component {
     super(props)
     this.state={
       dishes:DISHES,
-      leaders:LEADERS,
-      promition:Promition,
-      comments:Comment
+      selectedDish:null,
+      selectOne:false,
+      comment:null
     }
   };
   onDishSelecte(dishId){
@@ -39,6 +34,7 @@ onSetAfter(empty){
         <Home/>
       )
     }
+   
     return (
 
       <div className="App">
@@ -48,16 +44,20 @@ onSetAfter(empty){
         <Menu dishes={this.state.dishes} onClick={(dishId)=>this.onDishSelecte(dishId)} setAfter={(empty)=>this.onSetAfter(empty)}/>
         {this.state.selectOne &&(<DishdetailComponent   comments={this.state.comment} dish={this.state.dishes.filter((dish)=>dish.id === this.state.selectedDish)[0]}/>)}
          */}
+            
          <Header/>
      
-         <BrowserRouter>
+          
          <Routes>
           
           <Route path='/home'  element={<HomePage/>} />
           <Route exact path='/menu' element={ <Menu dishes={this.state.dishes} />} />
-          <Route exact path="/contactus" element={<Contact/>}/>
+          <Route exact path='/contactus' element={<Contactus />}/>
+          
         </Routes> 
-        </BrowserRouter>
+        
+
+       
         <Footer/>
         
         
